@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist-e2e/
+public/data/
+test-results/
+playwright-report/
+bulanci.exe
+bulanci_hra.zip

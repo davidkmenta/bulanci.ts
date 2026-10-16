@@ -1,0 +1,6 @@
+# server/Dockerfile builds from the repository root: send only what it copies
+*
+!game/src/net/protocol.ts
+!server/package.json
+!server/package-lock.json
+!server/*.ts

@@ -1,0 +1,16 @@
+{
+  "name": "bulanci-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.ts",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/ws": "^8.18.2"
+  }
+}

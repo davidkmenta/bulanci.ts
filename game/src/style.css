@@ -1,0 +1,31 @@
+html, body { margin: 0; height: 100%; background: #000; overflow: hidden; touch-action: none; font-family: system-ui, sans-serif; color: #eee; }
+#game { position: fixed; inset: 0; width: 100vw; height: 100dvh; display: block; }
+:root { --u: 3px; --pad: 144px; --btn: 96px; --side: 12px; }
+/* centred above the joystick, clear of the rounded screen corner */
+#ui.hud { position: fixed; top: calc(16px + env(safe-area-inset-top)); left: calc(var(--side) + var(--pad) / 2 - 32px); }
+#pause .btn { width: 64px; height: 64px; }
+button { font: inherit; padding: 10px 16px; border-radius: 8px; border: 1px solid #666; background: #222; color: #eee; }
+#ui.error { position: fixed; left: 50%; top: 8px; transform: translateX(-50%); color: #f88; max-width: 90vw; white-space: pre-wrap;
+  background: rgba(0, 0, 0, 0.8); padding: 0 12px; pointer-events: none; }
+/* behind a canvas Edit: invisible, but focusable so phones open their keyboard */
+#edit { position: fixed; opacity: 0; border: 0; padding: 0; font-size: 16px; }
+#debug { position: fixed; right: 8px; bottom: 8px; margin: 0; padding: 6px; background: rgba(0, 0, 0, 0.7); font-size: 11px;
+  max-width: 60vw; max-height: 50vh; overflow: hidden; pointer-events: none; }
+.touch { position: fixed; inset: 0; pointer-events: none; user-select: none; -webkit-user-select: none;
+  --bottom: calc(16px + env(safe-area-inset-bottom)); }
+.touch .stick, .touch .ctl { pointer-events: auto; }
+.touch.overlay .stick, .touch.overlay .ctl { opacity: 0.5; }
+.touch canvas, .ctl canvas { display: block; image-rendering: pixelated; }
+.touch .stick { position: absolute; left: var(--side); bottom: var(--bottom); width: var(--pad); height: var(--pad); }
+.touch .stick canvas:first-child { width: 100%; height: 100%; }
+/* the ball, half the plate: a hard one-pixel shadow down-right */
+.touch .ball { position: absolute; left: 25%; top: 25%; width: 50%; height: 50%;
+  filter: drop-shadow(var(--u) var(--u) 0 rgba(0, 0, 0, 0.6)); }
+/* Zbraň above Střelba, centred in a column as wide as the joystick; captions below like on a cabinet panel */
+.touch .buttons { position: absolute; right: var(--side); bottom: var(--bottom); width: var(--pad);
+  display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.ctl { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.btn canvas { width: 100%; height: 100%; }
+.touch .btn { width: var(--btn); height: var(--btn); }
+.ctl.on .up, .ctl:not(.on) .down { display: none; }
+.cap { zoom: 2; }

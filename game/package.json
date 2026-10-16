@@ -1,0 +1,35 @@
+{
+  "name": "bulanci",
+  "version": "1.0.0",
+  "description": "Bulánci (2006) rebuilt in TypeScript: web, iOS and Android",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "assets": "test -f bulanci.exe || (curl -fsSL -o bulanci_hra.zip https://www.bulanci.cz/wp-content/uploads/2021/04/bulanci_hra.zip && unzip -o -q bulanci_hra.zip bulanci.exe && rm bulanci_hra.zip) && python3 tools/extract.py bulanci.exe public/data",
+    "e2e": "playwright test",
+    "cap:sync": "npm run build && npx cap sync",
+    "test:extract": "python3 -m unittest discover -s tools"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.3"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/ios": "^8.5.3"
+  }
+}

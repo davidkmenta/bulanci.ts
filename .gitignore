@@ -1,0 +1,8 @@
+__pycache__/
+.idea/
+.DS_Store
+.superpowers/
+# Local reverse-engineering notes and tools, not part of the published repo
+NOTES.md
+docs/
+re/
